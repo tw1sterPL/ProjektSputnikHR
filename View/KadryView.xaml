@@ -1,0 +1,152 @@
+﻿<UserControl x:Class="Projekt.View.KadryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Projekt.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary Source="MainDictionary.xaml"/>
+    </UserControl.Resources>
+    <Grid>
+        <DockPanel>
+            <StackPanel Style="{StaticResource DockPanelRight}">
+                <StackPanel Style="{StaticResource StackPanelHeight150}">
+                    <Grid Style="{StaticResource GridPanelHeight150}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Row="0" Grid.RowSpan="3" Style="{StaticResource StackPanelImage}" >
+                            <Label Content="Miejsce na zdjęcie"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="0" Grid.Column="1">
+                            <!--<Label Content="Nr.Akt" Style="{StaticResource LabelNrAkt}"/>-->
+                            <Label/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="0" Grid.Column="2">
+                        </StackPanel>
+                        <ItemsControl Grid.Row="1" Grid.Column="1" ItemsSource="{Binding List}" FontSize="15" FontWeight="Bold" >
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Nazwisko}"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" >
+                            <Label Content="Nazwisko" Style="{StaticResource LabelSurname}" />
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+                <StackPanel Height="600">
+                    <Grid Height="600">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Style="{StaticResource StackPanelAdres}">
+                            <Image Source="/Source/Icons/home.png" Style="{StaticResource StackPanelAdresImage}"/>
+                            <Label Content="Adres" Style="{StaticResource StackPanelAdresLabel}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Horizontal" Margin="5 0 0 0 ">
+                            <Label Content="Dane adresowe" Style="{StaticResource StackPanelAdresLabel}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="9" Style="{StaticResource StackPanelAdres}">
+                            <Image Source="/Source/Icons/bell.png" Style="{StaticResource StackPanelAdresImage}"/>
+                            <Label Content="Uwagi" Style="{StaticResource StackPanelAdresLabel}"/>
+                </StackPanel>
+
+    </Grid> 
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Style="{StaticResource DockPanelTop}" >
+                <Grid Height="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Style="{StaticResource GridSeparatorBig}"/>
+                        <ColumnDefinition Style="{StaticResource GridSeparator}"/>
+                        <ColumnDefinition Style="{StaticResource GridWidthButton}"/>
+                        <ColumnDefinition Style="{StaticResource GridSeparator}"/>
+                        <ColumnDefinition Style="{StaticResource GridWidthButton}"/>
+                        <ColumnDefinition Style="{StaticResource GridSeparator}"/>
+                        <ColumnDefinition Style="{StaticResource GridWidthButton}"/>
+                        <ColumnDefinition Style="{StaticResource GridSeparator}"/>
+                        <ColumnDefinition Style="{StaticResource GridWidthButton}"/>
+                        <ColumnDefinition Style="{StaticResource GridSeparator}"/>
+                        <ColumnDefinition Style="{StaticResource GridWidthButton}"/>
+                        <ColumnDefinition Style="{StaticResource GridSeparator}"/>
+                        <ColumnDefinition Style="{StaticResource GridWidthButton}"/>
+                        <ColumnDefinition Style="{StaticResource GridSeparator}"/>
+                        <ColumnDefinition Style="{StaticResource GridWidthButton}"/>
+                        <ColumnDefinition Style="{StaticResource GridSeparator}"/>
+                        <ColumnDefinition Style="{StaticResource GridWidthButton}"/>
+                        <ColumnDefinition Style="{StaticResource GridSeparator}"/>
+                        <ColumnDefinition Style="{StaticResource GridWidthButton}"/>
+                        <ColumnDefinition Style="{StaticResource GridSeparator}"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource ComboBoxTab}" />
+                    <Button Grid.Column="2" Style="{StaticResource ButtonTab}" ToolTip="Szukaj">
+                        <Image Source="/Source/Icons/033-search.png" />
+                    </Button>
+                    <Button Grid.Column="4" Style="{StaticResource ButtonTab}" Click="OpenWindow" ToolTip="Nowy pracownik">
+                        <Image Source="/Source/Icons/001-add-file.png" />
+                    </Button>
+                    <Button Grid.Column="6" Style="{StaticResource ButtonTab}" >
+                        <Image Source="/Source/Icons/019-file.png" />
+                    </Button>
+                    <Button Grid.Column="8" Style="{StaticResource ButtonTab}" ToolTip="Popraw">
+                        <Image Source="/Source/Icons/015-edit.png" />
+                    </Button>
+                    <Button Grid.Column="10" Style="{StaticResource ButtonTab}" ToolTip="Skasuj">
+                        <Image Source="/Source/Icons/012-delete.png" />
+                    </Button>
+                    <Button Grid.Column="12" Style="{StaticResource ButtonTab}" ToolTip="Drukuj">
+                        <Image Source="/Source/Icons/030-printer.png" />
+                    </Button>
+                    <Grid Grid.Column="13" Height="30" Width="1" Background="Black"> </Grid>
+                    <Button Grid.Column="14" Style="{StaticResource ButtonTab}">
+                        <Image Source="/Source/Icons/020-file-transfer.png" />
+                    </Button>
+                </Grid>
+            </StackPanel>
+            <StackPanel Height="700" Background="White">
+                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nr.Akt" Binding="{Binding IdPracownika}"/>
+                        <DataGridTextColumn Header="Nazwisko" Width="100" Binding="{Binding Nazwisko}"/>
+                        <DataGridTextColumn Header="Imię" Width="100" Binding="{Binding Imie}"/>
+                        <DataGridTextColumn Header="Wydział" Width="150" Binding="{Binding Wydzial}"/>
+                        <DataGridTextColumn Header="Dział" Width="150" />
+                        <DataGridTextColumn Header="Stanowisko" Width="287.6" Binding="{Binding Stanowisko}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+        </DockPanel>    
+    </Grid>
+</UserControl>

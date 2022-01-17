@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="98f8e11a2e844e62bd849099e51e54c3" Name="Diagram1">
+        <EntityTypeShape EntityType="SputnikModel.AdresPracownik" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SputnikModel.DaneOsobowe" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SputnikModel.Departament" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SputnikModel.Malzonek" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SputnikModel.Pracownik" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SputnikModel.RodzicPracownika" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SputnikModel.Stanowisko" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SputnikModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SputnikModel.Umowa" Width="1.5" PointX="0.75" PointY="21.375" IsExpanded="true" />
+        <AssociationConnector Association="SputnikModel.FK_Pracownik_AdresPracownik" ManuallyRouted="false" />
+        <AssociationConnector Association="SputnikModel.FK_Pracownik_DaneOsobowe" ManuallyRouted="false" />
+        <AssociationConnector Association="SputnikModel.FK_Pracownik_Departament" ManuallyRouted="false" />
+        <AssociationConnector Association="SputnikModel.FK_Pracownik_Malzonek" ManuallyRouted="false" />
+        <AssociationConnector Association="SputnikModel.FK_Pracownik_RodzicPracownika" ManuallyRouted="false" />
+        <AssociationConnector Association="SputnikModel.FK_Pracownik_Stanowisko" ManuallyRouted="false" />
+        <AssociationConnector Association="SputnikModel.FK_Pracownik_Umowa" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

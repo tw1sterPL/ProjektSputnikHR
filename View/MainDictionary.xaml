@@ -1,0 +1,231 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vw="clr-namespace:Projekt.View"
+                    xmlns:local="clr-namespace:Projekt.ViewModel"
+                    xmlns:vm="clr-namespace:Projekt.ViewModel"
+                    xmlns:vw1="clr-namespace:Projekt.View">
+
+    <DataTemplate DataType="{x:Type local:KadryViewModel}">
+        <vw:KadryView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:PlaceViewModel}">
+        <vw:PlaceView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:WlascicielViewModel}">
+        <vw:WlascicieleView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:PrzelewZUSViewModel}">
+        <vw:PrzelewZusView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:KadryNewAddView}">
+        <vw:KadryNewAddView/>
+    </DataTemplate>
+    <!---MENU BAR-->
+    <Style x:Key="MenuColorV1" TargetType="{x:Type MenuItem}">
+        <Setter Property="Foreground" Value="#f1faee"/>
+    </Style>
+    <Style x:Key="MenuColorV2" TargetType="{x:Type MenuItem}">
+        <Setter Property="Foreground" Value="black"/>
+    </Style>
+    <!---DOCK PANEL LEFT MENU-->
+    <Style x:Key="DockPanelLeft" TargetType="{x:Type StackPanel}">
+        <Setter Property="DockPanel.Dock"  Value="Left"/>
+        <Setter Property="Width"  Value="125"/>
+        <Setter Property="Background"  Value="#457b9d"/>
+    </Style>
+    <Style x:Key="GridSeparatorWhite" TargetType="{x:Type Grid}">
+        <Setter Property="Height"  Value="1"/>
+        <Setter Property="Background"  Value="White"/>
+    </Style>
+    <Style x:Key="GridSeparator19" TargetType="{x:Type Grid}">
+        <Setter Property="Height"  Value="19"/>
+    </Style>
+    <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="BorderBrush"  Value="Transparent"/>
+        <Setter Property="Background"  Value="Transparent"/>
+        <Setter Property="Padding"  Value="9 5 0 5"/>
+        <Setter Property="HorizontalContentAlignment"  Value="Left"/>
+    </Style>
+    <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+        <Setter Property="BorderBrush"  Value="Transparent"/>
+        <Setter Property="Background"  Value="Transparent"/>
+        <Setter Property="Margin"  Value="0 0 20 0"/>
+    </Style>
+    <Style x:Key="ButtonStyle2" TargetType="{x:Type Button}">
+        <Setter Property="BorderBrush"  Value="Transparent"/>
+        <Setter Property="Background"  Value="Transparent"/>
+    </Style>
+    <Style x:Key="ListViewItemHeight" TargetType="{x:Type ListViewItem}">
+        <Setter Property="Height"  Value="30"/>
+    </Style>
+    <Style x:Key="TextBlockMenu" TargetType="{x:Type TextBlock}">
+        <Setter Property="Margin"  Value="15 0 0 0"/>
+        <Setter Property="FontFamily"  Value="Candara"/>
+        <Setter Property="Foreground"  Value="White"/>
+        <Setter Property="VerticalAlignment"  Value="Center"/>
+    </Style>
+    <Style x:Key="StackPanelOrientationV1" TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation"  Value="Horizontal"/>
+    </Style>
+    <Style x:Key="StackPanelOrientationV2" TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation"  Value="Horizontal"/>
+        <Setter Property="HorizontalAlignment"  Value="Center"/>
+        <Setter Property="Margin"  Value="0 5 0 0"/>
+    </Style>
+    <!--DOCK PANEL NEW TAB TOP-->
+    <Style x:Key="DockPanelTop" TargetType="{x:Type StackPanel}">
+        <Setter Property="DockPanel.Dock"  Value="Top"/>
+        <Setter Property="Height"  Value="50"/>
+        <Setter Property="Background"  Value="White"/>
+    </Style>
+    <Style x:Key="DockPanelRight" TargetType="{x:Type StackPanel}">
+        <Setter Property="DockPanel.Dock"  Value="Right"/>
+        <Setter Property="Width"  Value="300"/>
+        <Setter Property="Background"  Value="White"/>
+    </Style>
+    <Style x:Key="ComboBoxTab" TargetType="{x:Type ComboBox}">
+        <Setter Property="Height"  Value="25"/>
+        <Setter Property="Margin"  Value="5 0 0 0"/>
+    </Style>
+    <Style x:Key="ButtonTab" TargetType="{x:Type Button}">
+        <Setter Property="Height"  Value="30"/>
+        <Setter Property="Width"  Value="30"/>
+        <Setter Property="Background"  Value="Transparent"/>
+        <Setter Property="BorderBrush"  Value="Transparent"/>
+    </Style>
+    <!--DOCK PANEL NEW TAB RIGHT-->
+    <Style x:Key="StackPanelHeight150" TargetType="{x:Type StackPanel}">
+        <Setter Property="Height"  Value="150"/>
+    </Style>
+    <Style x:Key="GridPanelHeight150" TargetType="{x:Type Grid}">
+        <Setter Property="Height"  Value="150"/>
+    </Style>
+    <Style x:Key="StackPanelImage" TargetType="{x:Type StackPanel}">
+        <Setter Property="Width"  Value="100"/>
+        <Setter Property="Height"  Value="100"/>
+        <Setter Property="Background"  Value="LightGray"/>
+        <Setter Property="Margin"  Value="10 -20 0 0"/>
+    </Style>
+    <Style x:Key="LabelNrAkt" TargetType="{x:Type Label}">
+        <Setter Property="FontWeight"  Value="SemiBold"/>
+        <Setter Property="Margin"  Value="0 21 0 0"/>
+    </Style>
+    <Style x:Key="LabelName" TargetType="{x:Type Label}">
+        <Setter Property="FontWeight"  Value="SemiBold"/>
+        <Setter Property="FontSize"  Value="20"/>
+    </Style>
+    <Style x:Key="LabelSurname" TargetType="{x:Type Label}">
+        <Setter Property="FontWeight"  Value="SemiBold"/>
+        <Setter Property="FontSize"  Value="20"/>
+        <Setter Property="Margin"  Value="0 30 0 0"/>
+    </Style>
+    <Style x:Key="StackPanelAdres" TargetType="{x:Type StackPanel}">
+        <Setter Property="HorizontalAlignment"  Value="Left"/>
+        <Setter Property="Orientation"  Value="Horizontal"/>
+        <Setter Property="Margin"  Value="5 0 0 0"/>
+    </Style>
+    <Style x:Key="StackPanelAdresImage" TargetType="{x:Type Image}">
+        <Setter Property="Height"  Value="35"/>
+        <Setter Property="Width"  Value="35"/>
+    </Style>
+    <Style x:Key="StackPanelAdresDaneLabel" TargetType="{x:Type Label}">
+        <Setter Property="FontWeight"  Value="SemiBold"/>
+        <Setter Property="FontSize"  Value="20"/>
+        <Setter Property="Margin"  Value="0 30 0 0"/>
+    </Style>
+    <Style x:Key="StackPanelAdresLabel" TargetType="{x:Type Label}">
+        <Setter Property="FontWeight"  Value="SemiBold"/>
+        <Setter Property="FontSize"  Value="15"/>
+    </Style>
+
+    <!--GRID DEFINITION-->
+    <Style x:Key="GridSeparator" TargetType="{x:Type ColumnDefinition}">
+        <Setter Property="Width"  Value="5"/>
+    </Style>
+    <Style x:Key="GridWidthButton" TargetType="{x:Type ColumnDefinition}">
+        <Setter Property="Width"  Value="30"/>
+    </Style>
+    <Style x:Key="GridSeparatorBig" TargetType="{x:Type ColumnDefinition}">
+        <Setter Property="Width"  Value="80"/>
+    </Style>
+    <!--NEW KADRY ADD-->
+    <Style x:Key="LabelPrimaryBlue" TargetType="{x:Type Label}">
+        <Setter Property="Margin"  Value="10 0 0 0"/>
+        <Setter Property="Foreground"  Value="#00b4d8"/>
+    </Style>
+    <Style x:Key="LabelPrimaryBlueMargin5" TargetType="{x:Type Label}">
+        <Setter Property="Margin"  Value="10 0 0 0"/>
+        <Setter Property="Foreground"  Value="#00b4d8"/>
+    </Style>
+    <Style x:Key="StackpanelOrientation" TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation"  Value="Horizontal"/>
+        <Setter Property="VerticalAlignment"  Value="Top"/>
+    </Style>
+    <Style x:Key="SeparatorGridBlue" TargetType="{x:Type Grid}">
+        <Setter Property="Background"  Value="LightGray"/>
+        <Setter Property="Margin"  Value="15 14 0 0"/>
+        <Setter Property="Height"  Value="1"/>
+    </Style>
+    <Style x:Key="LabelHorizontalContentRight" TargetType="{x:Type Label}">
+        <Setter Property="HorizontalContentAlignment"  Value="Right"/>
+    </Style>
+    <Style x:Key="TextBoxHorizontalAligment50" TargetType="{x:Type TextBox}">
+        <Setter Property="HorizontalAlignment"  Value="Left"/>
+        <Setter Property="Margin"  Value="0 8 0 0"/>
+        <Setter Property="Width"  Value="50"/>
+    </Style>
+    <Style x:Key="TextBoxHorizontalAligment150" TargetType="{x:Type TextBox}">
+        <Setter Property="HorizontalAlignment"  Value="Left"/>
+        <Setter Property="Margin"  Value="0 8 0 0"/>
+        <Setter Property="Width"  Value="150"/>
+    </Style>
+    <Style x:Key="TextBoxHorizontalAligment100" TargetType="{x:Type TextBox}">
+        <Setter Property="HorizontalAlignment"  Value="Left"/>
+        <Setter Property="Margin"  Value="0 8 0 0"/>
+        <Setter Property="Width"  Value="100"/>
+    </Style>
+    <Style x:Key="TextBoxHorizontalAligment80" TargetType="{x:Type TextBox}">
+        <Setter Property="HorizontalAlignment"  Value="Left"/>
+        <Setter Property="Margin"  Value="0 8 0 0"/>
+        <Setter Property="Width"  Value="80"/>
+    </Style>
+    <!-- DATA TEMPLATE-->
+    <DataTemplate x:Key="ClosableTabItemTemplate">
+        <DockPanel Width="120">
+
+            <Button 
+        Command="{Binding Path=CloseCommand}"
+        BorderBrush="WhiteSmoke"
+        Background="White"
+        Foreground="#202731"
+        Content="X"
+        Cursor="Hand"
+        DockPanel.Dock="Right"
+        Focusable="False"
+        FontFamily="Courier" 
+        FontSize="9"
+        FontWeight="Bold"
+        Margin="0,1,0,0"
+        Padding="0"
+        VerticalContentAlignment="Bottom"
+        Width="16" Height="16" 
+        />
+            <ContentPresenter 
+        Content="{Binding Path=DisplayName}" 
+        VerticalAlignment="Center"
+        />
+        </DockPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="WorkspacesTemplate">
+        <TabControl 
+      BorderBrush="LightGray"
+      BorderThickness="1"
+      Background="Transparent"
+      IsSynchronizedWithCurrentItem="True" 
+      ItemsSource="{Binding}" 
+      ItemTemplate="{StaticResource ClosableTabItemTemplate}"
+      Margin="4"
+      />
+    </DataTemplate>
+    
+</ResourceDictionary>

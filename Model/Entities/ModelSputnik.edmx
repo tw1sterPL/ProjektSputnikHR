@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SputnikModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AdresPracownik">
+          <Key>
+            <PropertyRef Name="IdAdresPracownik" />
+          </Key>
+          <Property Name="IdAdresPracownik" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Miejscowosc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ulica" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NrDomu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NrLokalu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="KodPocztowy" Type="nchar" MaxLength="6" Nullable="false" />
+          <Property Name="Poczta" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DaneOsobowe">
+          <Key>
+            <PropertyRef Name="IdDaneOsobowe" />
+          </Key>
+          <Property Name="IdDaneOsobowe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NrPesel" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="NIP" Type="nchar" MaxLength="11" />
+          <Property Name="NrDowoduOsobistego" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StanCywilny" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelefonKontaktowy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdresEmail" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Departament">
+          <Key>
+            <PropertyRef Name="IdDepartament" />
+          </Key>
+          <Property Name="IdDepartament" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazwaDzial" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Malzonek">
+          <Key>
+            <PropertyRef Name="IdMalzonek" />
+          </Key>
+          <Property Name="IdMalzonek" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwisko" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Imie" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DataUrodzenia" Type="date" Nullable="false" />
+          <Property Name="Pesel" Type="nchar" MaxLength="11" Nullable="false" />
+          <Property Name="NIP" Type="nchar" MaxLength="13" />
+          <Property Name="DowodOsobisty" Type="nchar" MaxLength="9" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pracownik">
+          <Key>
+            <PropertyRef Name="IdPracownika" />
+          </Key>
+          <Property Name="IdPracownika" Type="int" Nullable="false" />
+          <Property Name="NrAkt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwisko" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Imie" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Imie2" Type="nvarchar" MaxLength="20" />
+          <Property Name="Plec" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IdRodzicaPracownika" Type="int" Nullable="false" />
+          <Property Name="IdMalzonek" Type="int" Nullable="false" />
+          <Property Name="IdUmowa" Type="int" Nullable="false" />
+          <Property Name="IdDaneOsobowe" Type="int" Nullable="false" />
+          <Property Name="IdDepartament" Type="int" Nullable="false" />
+          <Property Name="IdStanowisko" Type="int" Nullable="false" />
+          <Property Name="IdAdresPracownik" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RodzicPracownika">
+          <Key>
+            <PropertyRef Name="IdRodzicaPracownika" />
+          </Key>
+          <Property Name="IdRodzicaPracownika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImieOjca" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImieMatki" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NazwiskoRodowe" Type="nvarchar" MaxLength="50" />
+          <Property Name="NazwiskoRodoweMatki" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stanowisko">
+          <Key>
+            <PropertyRef Name="IdStanowisko" />
+          </Key>
+          <Property Name="IdStanowisko" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazwaStanowisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MinPlaca" Type="float" Nullable="false" />
+          <Property Name="MaxPlaca" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Umowa">
+          <Key>
+            <PropertyRef Name="IdUmowa" />
+          </Key>
+          <Property Name="IdUmowa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RodzajUmowa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UmowaOd" Type="date" Nullable="false" />
+          <Property Name="UmowaDo" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Pracownik_AdresPracownik">
+          <End Role="AdresPracownik" Type="Self.AdresPracownik" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdresPracownik">
+              <PropertyRef Name="IdAdresPracownik" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="IdAdresPracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownik_DaneOsobowe">
+          <End Role="DaneOsobowe" Type="Self.DaneOsobowe" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DaneOsobowe">
+              <PropertyRef Name="IdDaneOsobowe" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="IdDaneOsobowe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownik_Departament">
+          <End Role="Departament" Type="Self.Departament" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departament">
+              <PropertyRef Name="IdDepartament" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="IdDepartament" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownik_Malzonek">
+          <End Role="Malzonek" Type="Self.Malzonek" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Malzonek">
+              <PropertyRef Name="IdMalzonek" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="IdMalzonek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownik_RodzicPracownika">
+          <End Role="RodzicPracownika" Type="Self.RodzicPracownika" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzicPracownika">
+              <PropertyRef Name="IdRodzicaPracownika" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="IdRodzicaPracownika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownik_Stanowisko">
+          <End Role="Stanowisko" Type="Self.Stanowisko" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stanowisko">
+              <PropertyRef Name="IdStanowisko" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="IdStanowisko" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownik_Umowa">
+          <End Role="Umowa" Type="Self.Umowa" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Umowa">
+              <PropertyRef Name="IdUmowa" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="IdUmowa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SputnikModelStoreContainer">
+          <EntitySet Name="AdresPracownik" EntityType="Self.AdresPracownik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DaneOsobowe" EntityType="Self.DaneOsobowe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departament" EntityType="Self.Departament" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Malzonek" EntityType="Self.Malzonek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RodzicPracownika" EntityType="Self.RodzicPracownika" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stanowisko" EntityType="Self.Stanowisko" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Umowa" EntityType="Self.Umowa" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Pracownik_AdresPracownik" Association="Self.FK_Pracownik_AdresPracownik">
+            <End Role="AdresPracownik" EntitySet="AdresPracownik" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownik_DaneOsobowe" Association="Self.FK_Pracownik_DaneOsobowe">
+            <End Role="DaneOsobowe" EntitySet="DaneOsobowe" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownik_Departament" Association="Self.FK_Pracownik_Departament">
+            <End Role="Departament" EntitySet="Departament" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownik_Malzonek" Association="Self.FK_Pracownik_Malzonek">
+            <End Role="Malzonek" EntitySet="Malzonek" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownik_RodzicPracownika" Association="Self.FK_Pracownik_RodzicPracownika">
+            <End Role="RodzicPracownika" EntitySet="RodzicPracownika" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownik_Stanowisko" Association="Self.FK_Pracownik_Stanowisko">
+            <End Role="Stanowisko" EntitySet="Stanowisko" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownik_Umowa" Association="Self.FK_Pracownik_Umowa">
+            <End Role="Umowa" EntitySet="Umowa" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SputnikModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AdresPracownik">
+          <Key>
+            <PropertyRef Name="IdAdresPracownik" />
+          </Key>
+          <Property Name="IdAdresPracownik" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Miejscowosc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrDomu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NrLokalu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KodPocztowy" Type="String" MaxLength="6" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Poczta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_Pracownik_AdresPracownik" FromRole="AdresPracownik" ToRole="Pracownik" />
+        </EntityType>
+        <EntityType Name="DaneOsobowe">
+          <Key>
+            <PropertyRef Name="IdDaneOsobowe" />
+          </Key>
+          <Property Name="IdDaneOsobowe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrPesel" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="NIP" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="NrDowoduOsobistego" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StanCywilny" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TelefonKontaktowy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdresEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_Pracownik_DaneOsobowe" FromRole="DaneOsobowe" ToRole="Pracownik" />
+        </EntityType>
+        <EntityType Name="Departament">
+          <Key>
+            <PropertyRef Name="IdDepartament" />
+          </Key>
+          <Property Name="IdDepartament" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazwaDzial" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_Pracownik_Departament" FromRole="Departament" ToRole="Pracownik" />
+        </EntityType>
+        <EntityType Name="Malzonek">
+          <Key>
+            <PropertyRef Name="IdMalzonek" />
+          </Key>
+          <Property Name="IdMalzonek" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwisko" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataUrodzenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Pesel" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="NIP" Type="String" MaxLength="13" FixedLength="true" Unicode="true" />
+          <Property Name="DowodOsobisty" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_Pracownik_Malzonek" FromRole="Malzonek" ToRole="Pracownik" />
+        </EntityType>
+        <EntityType Name="Pracownik">
+          <Key>
+            <PropertyRef Name="IdPracownika" />
+          </Key>
+          <Property Name="IdPracownika" Type="Int32" Nullable="false" />
+          <Property Name="NrAkt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nazwisko" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Imie" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Imie2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Plec" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdRodzicaPracownika" Type="Int32" Nullable="false" />
+          <Property Name="IdMalzonek" Type="Int32" Nullable="false" />
+          <Property Name="IdUmowa" Type="Int32" Nullable="false" />
+          <Property Name="IdDaneOsobowe" Type="Int32" Nullable="false" />
+          <Property Name="IdDepartament" Type="Int32" Nullable="false" />
+          <Property Name="IdStanowisko" Type="Int32" Nullable="false" />
+          <Property Name="IdAdresPracownik" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AdresPracownik" Relationship="Self.FK_Pracownik_AdresPracownik" FromRole="Pracownik" ToRole="AdresPracownik" />
+          <NavigationProperty Name="DaneOsobowe" Relationship="Self.FK_Pracownik_DaneOsobowe" FromRole="Pracownik" ToRole="DaneOsobowe" />
+          <NavigationProperty Name="Departament" Relationship="Self.FK_Pracownik_Departament" FromRole="Pracownik" ToRole="Departament" />
+          <NavigationProperty Name="Malzonek" Relationship="Self.FK_Pracownik_Malzonek" FromRole="Pracownik" ToRole="Malzonek" />
+          <NavigationProperty Name="RodzicPracownika" Relationship="Self.FK_Pracownik_RodzicPracownika" FromRole="Pracownik" ToRole="RodzicPracownika" />
+          <NavigationProperty Name="Stanowisko" Relationship="Self.FK_Pracownik_Stanowisko" FromRole="Pracownik" ToRole="Stanowisko" />
+          <NavigationProperty Name="Umowa" Relationship="Self.FK_Pracownik_Umowa" FromRole="Pracownik" ToRole="Umowa" />
+        </EntityType>
+        <EntityType Name="RodzicPracownika">
+          <Key>
+            <PropertyRef Name="IdRodzicaPracownika" />
+          </Key>
+          <Property Name="IdRodzicaPracownika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImieOjca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImieMatki" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NazwiskoRodowe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NazwiskoRodoweMatki" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_Pracownik_RodzicPracownika" FromRole="RodzicPracownika" ToRole="Pracownik" />
+        </EntityType>
+        <EntityType Name="Stanowisko">
+          <Key>
+            <PropertyRef Name="IdStanowisko" />
+          </Key>
+          <Property Name="IdStanowisko" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazwaStanowisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MinPlaca" Type="Double" Nullable="false" />
+          <Property Name="MaxPlaca" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_Pracownik_Stanowisko" FromRole="Stanowisko" ToRole="Pracownik" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Umowa">
+          <Key>
+            <PropertyRef Name="IdUmowa" />
+          </Key>
+          <Property Name="IdUmowa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RodzajUmowa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UmowaOd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UmowaDo" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_Pracownik_Umowa" FromRole="Umowa" ToRole="Pracownik" />
+        </EntityType>
+        <Association Name="FK_Pracownik_AdresPracownik">
+          <End Role="AdresPracownik" Type="Self.AdresPracownik" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AdresPracownik">
+              <PropertyRef Name="IdAdresPracownik" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="IdAdresPracownik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownik_DaneOsobowe">
+          <End Role="DaneOsobowe" Type="Self.DaneOsobowe" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DaneOsobowe">
+              <PropertyRef Name="IdDaneOsobowe" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="IdDaneOsobowe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownik_Departament">
+          <End Role="Departament" Type="Self.Departament" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departament">
+              <PropertyRef Name="IdDepartament" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="IdDepartament" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownik_Malzonek">
+          <End Role="Malzonek" Type="Self.Malzonek" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Malzonek">
+              <PropertyRef Name="IdMalzonek" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="IdMalzonek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownik_RodzicPracownika">
+          <End Role="RodzicPracownika" Type="Self.RodzicPracownika" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzicPracownika">
+              <PropertyRef Name="IdRodzicaPracownika" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="IdRodzicaPracownika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownik_Stanowisko">
+          <End Role="Stanowisko" Type="Self.Stanowisko" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stanowisko">
+              <PropertyRef Name="IdStanowisko" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="IdStanowisko" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownik_Umowa">
+          <End Role="Umowa" Type="Self.Umowa" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Umowa">
+              <PropertyRef Name="IdUmowa" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="IdUmowa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SputnikkEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AdresPracownik" EntityType="Self.AdresPracownik" />
+          <EntitySet Name="DaneOsobowe" EntityType="Self.DaneOsobowe" />
+          <EntitySet Name="Departament" EntityType="Self.Departament" />
+          <EntitySet Name="Malzonek" EntityType="Self.Malzonek" />
+          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" />
+          <EntitySet Name="RodzicPracownika" EntityType="Self.RodzicPracownika" />
+          <EntitySet Name="Stanowisko" EntityType="Self.Stanowisko" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Umowa" EntityType="Self.Umowa" />
+          <AssociationSet Name="FK_Pracownik_AdresPracownik" Association="Self.FK_Pracownik_AdresPracownik">
+            <End Role="AdresPracownik" EntitySet="AdresPracownik" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownik_DaneOsobowe" Association="Self.FK_Pracownik_DaneOsobowe">
+            <End Role="DaneOsobowe" EntitySet="DaneOsobowe" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownik_Departament" Association="Self.FK_Pracownik_Departament">
+            <End Role="Departament" EntitySet="Departament" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownik_Malzonek" Association="Self.FK_Pracownik_Malzonek">
+            <End Role="Malzonek" EntitySet="Malzonek" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownik_RodzicPracownika" Association="Self.FK_Pracownik_RodzicPracownika">
+            <End Role="RodzicPracownika" EntitySet="RodzicPracownika" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownik_Stanowisko" Association="Self.FK_Pracownik_Stanowisko">
+            <End Role="Stanowisko" EntitySet="Stanowisko" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownik_Umowa" Association="Self.FK_Pracownik_Umowa">
+            <End Role="Umowa" EntitySet="Umowa" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SputnikModelStoreContainer" CdmEntityContainer="SputnikkEntities">
+          <EntitySetMapping Name="AdresPracownik">
+            <EntityTypeMapping TypeName="SputnikModel.AdresPracownik">
+              <MappingFragment StoreEntitySet="AdresPracownik">
+                <ScalarProperty Name="IdAdresPracownik" ColumnName="IdAdresPracownik" />
+                <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
+                <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+                <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />
+                <ScalarProperty Name="NrLokalu" ColumnName="NrLokalu" />
+                <ScalarProperty Name="KodPocztowy" ColumnName="KodPocztowy" />
+                <ScalarProperty Name="Poczta" ColumnName="Poczta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DaneOsobowe">
+            <EntityTypeMapping TypeName="SputnikModel.DaneOsobowe">
+              <MappingFragment StoreEntitySet="DaneOsobowe">
+                <ScalarProperty Name="IdDaneOsobowe" ColumnName="IdDaneOsobowe" />
+                <ScalarProperty Name="NrPesel" ColumnName="NrPesel" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="NrDowoduOsobistego" ColumnName="NrDowoduOsobistego" />
+                <ScalarProperty Name="StanCywilny" ColumnName="StanCywilny" />
+                <ScalarProperty Name="TelefonKontaktowy" ColumnName="TelefonKontaktowy" />
+                <ScalarProperty Name="AdresEmail" ColumnName="AdresEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departament">
+            <EntityTypeMapping TypeName="SputnikModel.Departament">
+              <MappingFragment StoreEntitySet="Departament">
+                <ScalarProperty Name="IdDepartament" ColumnName="IdDepartament" />
+                <ScalarProperty Name="NazwaDzial" ColumnName="NazwaDzial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Malzonek">
+            <EntityTypeMapping TypeName="SputnikModel.Malzonek">
+              <MappingFragment StoreEntitySet="Malzonek">
+                <ScalarProperty Name="IdMalzonek" ColumnName="IdMalzonek" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="DataUrodzenia" ColumnName="DataUrodzenia" />
+                <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+                <ScalarProperty Name="NIP" ColumnName="NIP" />
+                <ScalarProperty Name="DowodOsobisty" ColumnName="DowodOsobisty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pracownik">
+            <EntityTypeMapping TypeName="SputnikModel.Pracownik">
+              <MappingFragment StoreEntitySet="Pracownik">
+                <ScalarProperty Name="IdPracownika" ColumnName="IdPracownika" />
+                <ScalarProperty Name="NrAkt" ColumnName="NrAkt" />
+                <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+                <ScalarProperty Name="Imie" ColumnName="Imie" />
+                <ScalarProperty Name="Imie2" ColumnName="Imie2" />
+                <ScalarProperty Name="Plec" ColumnName="Plec" />
+                <ScalarProperty Name="IdRodzicaPracownika" ColumnName="IdRodzicaPracownika" />
+                <ScalarProperty Name="IdMalzonek" ColumnName="IdMalzonek" />
+                <ScalarProperty Name="IdUmowa" ColumnName="IdUmowa" />
+                <ScalarProperty Name="IdDaneOsobowe" ColumnName="IdDaneOsobowe" />
+                <ScalarProperty Name="IdDepartament" ColumnName="IdDepartament" />
+                <ScalarProperty Name="IdStanowisko" ColumnName="IdStanowisko" />
+                <ScalarProperty Name="IdAdresPracownik" ColumnName="IdAdresPracownik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RodzicPracownika">
+            <EntityTypeMapping TypeName="SputnikModel.RodzicPracownika">
+              <MappingFragment StoreEntitySet="RodzicPracownika">
+                <ScalarProperty Name="IdRodzicaPracownika" ColumnName="IdRodzicaPracownika" />
+                <ScalarProperty Name="ImieOjca" ColumnName="ImieOjca" />
+                <ScalarProperty Name="ImieMatki" ColumnName="ImieMatki" />
+                <ScalarProperty Name="NazwiskoRodowe" ColumnName="NazwiskoRodowe" />
+                <ScalarProperty Name="NazwiskoRodoweMatki" ColumnName="NazwiskoRodoweMatki" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stanowisko">
+            <EntityTypeMapping TypeName="SputnikModel.Stanowisko">
+              <MappingFragment StoreEntitySet="Stanowisko">
+                <ScalarProperty Name="IdStanowisko" ColumnName="IdStanowisko" />
+                <ScalarProperty Name="NazwaStanowisko" ColumnName="NazwaStanowisko" />
+                <ScalarProperty Name="MinPlaca" ColumnName="MinPlaca" />
+                <ScalarProperty Name="MaxPlaca" ColumnName="MaxPlaca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SputnikModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Umowa">
+            <EntityTypeMapping TypeName="SputnikModel.Umowa">
+              <MappingFragment StoreEntitySet="Umowa">
+                <ScalarProperty Name="IdUmowa" ColumnName="IdUmowa" />
+                <ScalarProperty Name="RodzajUmowa" ColumnName="RodzajUmowa" />
+                <ScalarProperty Name="UmowaOd" ColumnName="UmowaOd" />
+                <ScalarProperty Name="UmowaDo" ColumnName="UmowaDo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
